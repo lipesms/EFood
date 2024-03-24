@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom'
-
 import styled from 'styled-components'
 import { colors } from '../../styles'
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type Props = {
+  type: 'restaurant' | 'food'
+}
 
 export const CardContainer = styled.div`
   position: relative;
@@ -42,14 +45,6 @@ export const TitleReview = styled.div`
     text-align: end;
   }
 `
-
-export const RestaurantLink = styled(Link)`
-  background-color: ${colors.laranjaClaro};
-  color: ${colors.branco};
-  text-decoration: none;
-  padding: 4px 8px;
-`
-
 export const Infos = styled.div`
   position: absolute;
   top: 16px;

@@ -5,6 +5,6 @@ export const TagContainer = styled.div`
   display: inline-block;
   margin-left: 8px;
   color: ${colors.branco};
-  padding: 8px 16px;
+  padding: 4px 6px;
   background-color: ${colors.laranjaClaro};
 `

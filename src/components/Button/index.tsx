@@ -1,19 +1,21 @@
+import { RestaurantLink, FoodLink } from './styles'
+
 type Props = {
-  tipo: 'link' | 'button'
+  type: 'restaurant' | 'food'
   to?: string
-  onClick: () => void
-  chieldren: string
+  onClick?: () => void
+  children: string
 }
 
-const Button = ({ tipo, onClick, chieldren }: Props) => {
-  if (tipo === 'link') {
+const Button = ({ type, onClick, children, to }: Props) => {
+  if (type === 'restaurant') {
     return (
-      <a href="#" onClick={onClick}>
-        {chieldren}
-      </a>
+      <RestaurantLink to={to as string} onClick={onClick}>
+        {children}
+      </RestaurantLink>
     )
   }
-  return <button onClick={onClick}>{chieldren}</button>
+  return <FoodLink onClick={onClick}>{children}</FoodLink>
 }
 
 export default Button

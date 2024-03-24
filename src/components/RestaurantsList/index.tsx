@@ -20,6 +20,7 @@ const RestaurantsList = ({ restaurants }: Props) => (
           rate={restaurant.rate}
           infos={restaurant.infos != undefined ? restaurant.infos : []}
           to={restaurant.to}
+          type={restaurant.type}
         />
       ))}
     </List>
