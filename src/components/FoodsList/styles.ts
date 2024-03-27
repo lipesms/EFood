@@ -8,6 +8,6 @@ export const Container = styled.div`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 48px;
 `

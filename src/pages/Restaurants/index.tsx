@@ -1,16 +1,57 @@
-import RestaurantsList from '../../components/RestaurantsList'
-
 import RestaurantHeader from '../../components/RestaurantHeader'
+import FoodsList from '../../components/FoodsList'
+import Footer from '../../components/Footer'
+
+import RestaurantBanner from '../../components/RestaurantBanner'
 import Restaurant from '../../models/restaurants'
-import hioki from '../../assets/images/hioki_sushi.png'
+import marguerita from '../../assets/images/marguerita.png'
 
 const restaurants: Restaurant[] = [
   {
-    title: 'Hioki Sushi',
+    title: 'Pizza Marguerita',
     description:
-      'Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida.Experimente o Japão sem sair do lar com nosso delivery!',
-    rate: '4.9',
-    image: hioki,
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    image: marguerita,
+    type: 'food',
+    to: '/restaurant'
+  },
+  {
+    title: 'Pizza Marguerita',
+    description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    image: marguerita,
+    type: 'food',
+    to: '/restaurant'
+  },
+  {
+    title: 'Pizza Marguerita',
+    description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    image: marguerita,
+    type: 'food',
+    to: '/restaurant'
+  },
+  {
+    title: 'Pizza Marguerita',
+    description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    image: marguerita,
+    type: 'food',
+    to: '/restaurant'
+  },
+  {
+    title: 'Pizza Marguerita',
+    description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    image: marguerita,
+    type: 'food',
+    to: '/restaurant'
+  },
+  {
+    title: 'Pizza Marguerita',
+    description:
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
+    image: marguerita,
     type: 'food',
     to: '/restaurant'
   }
@@ -19,9 +60,11 @@ const restaurants: Restaurant[] = [
 const Restaurants = () => (
   <>
     <RestaurantHeader />
+    <RestaurantBanner />
     <div className="container">
-      <RestaurantsList restaurants={restaurants} />
+      <FoodsList restaurants={restaurants} />
     </div>
+    <Footer />
   </>
 )
 

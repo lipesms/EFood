@@ -1,9 +1,9 @@
 class Restaurant {
   title: string
   description: string
-  rate: string
   image: string
   type: 'restaurant' | 'food'
+  rate?: string
   infos?: string[]
   to?: string
 

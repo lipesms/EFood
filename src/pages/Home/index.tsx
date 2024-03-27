@@ -1,10 +1,11 @@
+import HomeList from '../../components/HomeList'
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+
 import Restaurant from '../../models/restaurants'
 
 import hioki from '../../assets/images/hioki_sushi.png'
 import vita from '../../assets/images/doce_vita.png'
-
-import RestaurantsList from '../../components/RestaurantsList'
-import Header from '../../components/Header'
 
 const restaurants: Restaurant[] = [
   {
@@ -73,8 +74,9 @@ const Home = () => (
   <>
     <Header />
     <div className="container">
-      <RestaurantsList restaurants={restaurants} />
+      <HomeList restaurants={restaurants} />
     </div>
+    <Footer />
   </>
 )
 

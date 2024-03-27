@@ -4,11 +4,11 @@ import Restaurant from '../../models/restaurants'
 
 import Card from '../Card'
 
-type Props = {
+export type Props = {
   restaurants: Restaurant[]
 }
 
-const RestaurantsList = ({ restaurants }: Props) => (
+const HomeList = ({ restaurants }: Props) => (
   <Container className="container">
     <List>
       {restaurants.map((restaurant) => (
@@ -27,4 +27,4 @@ const RestaurantsList = ({ restaurants }: Props) => (
   </Container>
 )
 
-export default RestaurantsList
+export default HomeList
