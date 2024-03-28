@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const HeaderBG = styled.div`
   width: 100%;
-  height: 50vh;
+  height: 384px;
 `
 
 export const HeaderContainer = styled.header`

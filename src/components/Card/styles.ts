@@ -34,10 +34,6 @@ export const TextContainer = styled.div<Props>`
   h3 {
     font-size: ${(props) => (isRestaurant(props.type) ? '18px' : '16px')};
   }
-
-  p {
-    padding: ${(props) => (isRestaurant(props.type) ? '16px 0' : '8px 0')};
-  }
 `
 
 export const TitleReview = styled.div<Props>`
@@ -46,6 +42,7 @@ export const TitleReview = styled.div<Props>`
   justify-content: space-between;
   font-weight: bold;
   font-size: ${(props) => (isRestaurant(props.type) ? '18px' : '16px')};
+  padding: 8px 0 16px;
 
   & > div {
     display: flex;

@@ -10,6 +10,8 @@ export const FooterContainer = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 100%;
   }
 
   p {
@@ -22,5 +24,5 @@ export const FooterContainer = styled.footer`
 export const ProfessionalLinks = styled.ul`
   display: flex;
   gap: 8px;
-  padding: 32px 0 40px;
+  padding: 32px 0 80px;
 `
