@@ -14,7 +14,6 @@ export const BannerContainer = styled.div`
   justify-content: space-between;
   height: 100%;
   padding: 24px 0;
-  z-index: 22;
 
   * {
     color: white;

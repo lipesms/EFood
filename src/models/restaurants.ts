@@ -2,7 +2,7 @@ class Restaurant {
   title: string
   description: string
   image: string
-  type: 'restaurant' | 'food'
+  type: 'button' | 'link'
   rate?: string
   infos?: string[]
   to?: string
@@ -12,7 +12,7 @@ class Restaurant {
     description: string,
     rate: string,
     image: string,
-    type: 'restaurant' | 'food',
+    type: 'button' | 'link',
     infos?: string[],
     to?: string
   ) {

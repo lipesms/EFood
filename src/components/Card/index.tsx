@@ -8,17 +8,32 @@ import Tag from '../Tag'
 export type Props = {
   image: string
   title: string
-  rate?: string
+  rate?: number
   description: string
   infos: string[]
-  to?: string
-  type: 'restaurant' | 'food'
+  to?: number
+  type: 'button' | 'link'
+  onClick?: () => void
 }
 
-const Card = ({ image, title, rate, description, infos, to, type }: Props) => {
+const Card = ({
+  image,
+  title,
+  rate,
+  description,
+  infos,
+  type,
+  to,
+  onClick
+}: Props) => {
+  const getCardDescription = (desc: string) => {
+    if (desc.length > 122) {
+      return desc.slice(0, 122).concat('...')
+    }
+  }
   return (
-    <CardContainer type={type}>
-      <img src={image} alt="Hioki Sushi" />
+    <CardContainer type={type} onClick={onClick}>
+      <img src={image} alt={title} />
       <Infos>
         {infos.map((info) => (
           <Tag key={info}>{info}</Tag>
@@ -40,9 +55,9 @@ const Card = ({ image, title, rate, description, infos, to, type }: Props) => {
             }
           })()}
         </TitleReview>
-        <p>{description}</p>
-        <Button type={type} to={to as string}>
-          {type === 'restaurant' ? 'Saiba mais' : 'Adicionar ao carrinho'}
+        <p>{getCardDescription(description)}</p>
+        <Button type={type} to={`/restaurant/${to}`}>
+          {type === 'link' ? 'Saiba mais' : 'Adicionar ao carrinho'}
         </Button>
       </TextContainer>
     </CardContainer>

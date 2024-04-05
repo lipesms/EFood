@@ -1,16 +1,20 @@
 import { BannerImage, BannerContainer } from './styles'
 
-import vita from '../../assets/images/doce_vita.png'
+type Props = {
+  image: string
+  type: string
+  name: string
+}
 
-const RestaurantBanner = () => (
+const RestaurantBanner = ({ image, type, name }: Props) => (
   <BannerImage
     style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${vita})`
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image})`
     }}
   >
     <BannerContainer className="container">
-      <h4>Italiana</h4>
-      <h2>La Dolce Vita Trattoria</h2>
+      <h4>{type}</h4>
+      <h2>{name}</h2>
     </BannerContainer>
   </BannerImage>
 )

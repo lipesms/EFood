@@ -1,71 +1,42 @@
+import { useParams } from 'react-router-dom'
+
 import RestaurantHeader from '../../components/RestaurantHeader'
 import FoodsList from '../../components/FoodsList'
 import Footer from '../../components/Footer'
 
 import RestaurantBanner from '../../components/RestaurantBanner'
-import Restaurant from '../../models/restaurants'
-import marguerita from '../../assets/images/marguerita.png'
+import { useEffect, useState } from 'react'
+import { Restaurant } from '../Home'
 
-const restaurants: Restaurant[] = [
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita,
-    type: 'food',
-    to: '/restaurant'
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita,
-    type: 'food',
-    to: '/restaurant'
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita,
-    type: 'food',
-    to: '/restaurant'
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita,
-    type: 'food',
-    to: '/restaurant'
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita,
-    type: 'food',
-    to: '/restaurant'
-  },
-  {
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    image: marguerita,
-    type: 'food',
-    to: '/restaurant'
-  }
-]
+const Restaurants = () => {
+  const { id } = useParams()
+  const [menu, setMenu] = useState<Restaurant>({
+    id: 0,
+    titulo: '',
+    destacado: false,
+    tipo: '',
+    avaliacao: 5.0,
+    descricao: '',
+    capa: '',
+    cardapio: []
+  })
 
-const Restaurants = () => (
-  <>
-    <RestaurantHeader />
-    <RestaurantBanner />
-    <div className="container">
-      <FoodsList restaurants={restaurants} />
-    </div>
-    <Footer />
-  </>
-)
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setMenu(res))
+  }, [id])
+
+  return (
+    <>
+      <RestaurantHeader />
+      <RestaurantBanner image={menu.capa} name={menu.titulo} type={menu.tipo} />
+      <div className="container">
+        <FoodsList restaurant={menu} type="button" />
+      </div>
+      <Footer />
+    </>
+  )
+}
 
 export default Restaurants

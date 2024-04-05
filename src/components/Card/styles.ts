@@ -2,15 +2,16 @@ import styled from 'styled-components'
 import { colors } from '../../styles'
 
 type Props = {
-  type: 'restaurant' | 'food'
+  type: 'button' | 'link'
 }
 
-const isRestaurant = (p: 'restaurant' | 'food') => p === 'restaurant'
+const isRestaurant = (p: 'button' | 'link') => p === 'link'
 
 export const CardContainer = styled.div<Props>`
   position: relative;
   border: 1px solid ${colors.laranjaClaro};
   max-width: ${(props) => (isRestaurant(props.type) ? '472px' : '320px')};
+  max-height: ${(props) => (isRestaurant(props.type) ? 'auto' : '338px')};
   font-size: 14px;
   line-height: 22px;
   background-color: ${(props) =>
@@ -19,6 +20,8 @@ export const CardContainer = styled.div<Props>`
 
   img {
     width: 100%;
+    max-height: ${(props) => (isRestaurant(props.type) ? '217px' : '167px')};
+    object-fit: cover;
   }
 `
 
