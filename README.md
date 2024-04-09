@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+<h1 align="center">EFood</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Página inicial da EFood](/src//assets/images/banner.png)
 
-Currently, two official plugins are available:
+<p align="center">Um jeito fácil de experênciar bons restaurantes do confroto da sua casa.</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<h4 align="center">
+	🚧  <b>EFood</b>  Em construção...  🚧
+</h4>
 
-- Configure the top-level `parserOptions` property like this:
+### Overview
+O EFood é uma plataforma onde você pode achar restaurantes selecionados pela sua qualidade e diversidade, fazer seu pedido pelo computador ou celular, e comer sem precisar sair da sua casa. Com uma usabilidade simples você pode fazer todo o pedido de forma fácil independente do lugar que está.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [x] Seleção de restaurantes
+- [x] Seleção da comida
+- [ ] Adição ao carrinho
+- [ ] Remoção do carrinho
+- [ ] Adição do endereço de entrega
+- [ ] Adição do cartão para pagamento
+
+### 🛠 Technologies
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [React](https://www.react.com)
+- [Typescript](https://www.typescriptlang.org/)
+- [Styled components](https://styled-components.com/)
+- [Vite](https://vitejs.dev/)
+- [prettier](https://prettier.io/)
+- [Redux](https://redux.js.org/)
+- [Eslint](https://eslint.org/)
+
