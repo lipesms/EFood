@@ -10,7 +10,7 @@
 	🚧  <b>EFood</b>  Em construção...  🚧
 </h4>
 
-### Overview
+### Visão geral
 O EFood é uma plataforma onde você pode achar restaurantes selecionados pela sua qualidade e diversidade, fazer seu pedido pelo computador ou celular, e comer sem precisar sair da sua casa. Com uma usabilidade simples você pode fazer todo o pedido de forma fácil independente do lugar que está.
 
 ### Features
@@ -22,7 +22,7 @@ O EFood é uma plataforma onde você pode achar restaurantes selecionados pela s
 - [ ] Adição do endereço de entrega
 - [ ] Adição do cartão para pagamento
 
-### 🛠 Technologies
+### 🛠 Tecnologias
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
@@ -34,3 +34,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Redux](https://redux.js.org/)
 - [Eslint](https://eslint.org/)
 
+### Resultados
+
+Veja o resultado através do site do [EFood](https://e-food-rust.vercel.app/)
