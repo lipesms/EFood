@@ -47,7 +47,7 @@ const Cart = () => {
           Valor total
           <span>{formatePrice(getTotalPrice())}</span>
         </TotalPrice>
-        <Button type="button">Containuar com a entrega</Button>
+        <Button type="button">Continuar com a entrega</Button>
       </SideBar>
     </CartContainer>
   )
