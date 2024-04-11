@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+
 import {
   Container,
   List,
@@ -15,13 +17,12 @@ import Card from '../Card'
 import closeButton from '../../assets/images/fechar.png'
 import { useState } from 'react'
 
-type MenuItems = {
-  nome: string
-  infos: string
-  porcoes: string
-  url: string
+import { MenuItem } from '../../pages/Home'
+
+import { open, add } from '../../store/reducers/cart'
+
+interface ModalProps extends MenuItem {
   isVisible: boolean
-  price: number
 }
 
 type Props = {
@@ -30,7 +31,7 @@ type Props = {
   onClick?: () => void
 }
 
-const formatePrice = (preco = 0) => {
+export const formatePrice = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -38,25 +39,41 @@ const formatePrice = (preco = 0) => {
 }
 
 const HomeList = ({ restaurant, type }: Props) => {
-  const [modal, setModal] = useState<MenuItems>({
+  const dispatch = useDispatch()
+  const [modal, setModal] = useState<ModalProps>({
+    id: 0,
     nome: '',
-    infos: '',
-    porcoes: '',
-    url: '',
+    descricao: '',
     isVisible: false,
-    price: 0
+    porcao: '',
+    foto: '',
+    preco: 0
   })
+
+  const addToCart = () => {
+    dispatch(
+      add({
+        id: modal.id,
+        foto: modal.foto,
+        preco: modal.preco,
+        nome: modal.nome,
+        descricao: modal.descricao,
+        porcao: modal.porcao
+      })
+    )
+    dispatch(open())
+  }
 
   const closeModal = () =>
     setModal({
+      id: 0,
       nome: '',
-      infos: '',
+      descricao: '',
       isVisible: false,
-      porcoes: '',
-      url: '',
-      price: 0
+      porcao: '',
+      foto: '',
+      preco: 0
     })
-  console.log(restaurant)
 
   return (
     <Container className="container">
@@ -71,12 +88,13 @@ const HomeList = ({ restaurant, type }: Props) => {
             type={type}
             onClick={() =>
               setModal({
+                id: item.id,
                 nome: item.nome,
-                infos: item.descricao,
+                descricao: item.descricao,
                 isVisible: true,
-                porcoes: item.porcao,
-                url: item.foto,
-                price: item.preco
+                porcao: item.porcao!,
+                foto: item.foto,
+                preco: item.preco!
               })
             }
           />
@@ -85,13 +103,19 @@ const HomeList = ({ restaurant, type }: Props) => {
 
       <Modal className={`${modal.isVisible && 'visible'}`}>
         <ModalContent className="container">
-          <Image src={modal.url} alt="comida 1 do restaurante tal" />
+          <Image src={modal.foto} alt="comida 1 do restaurante tal" />
           <div>
             <h3>{modal.nome}</h3>
-            <p>{modal.infos}</p>
-            <p>Serve de {modal.porcoes}</p>
-            <AddCartButton type="button">
-              Adicionar ao carrinho - {formatePrice(modal.price)}
+            <p>{modal.descricao}</p>
+            <p>Serve de {modal.porcao}</p>
+            <AddCartButton
+              type="button"
+              onClick={() => {
+                addToCart()
+                closeModal()
+              }}
+            >
+              Adicionar ao carrinho - {formatePrice(modal.preco)}
             </AddCartButton>
           </div>
           <CloseButton

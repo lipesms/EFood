@@ -1,42 +1,35 @@
 import { useParams } from 'react-router-dom'
 
 import RestaurantHeader from '../../components/RestaurantHeader'
+import RestaurantBanner from '../../components/RestaurantBanner'
 import FoodsList from '../../components/FoodsList'
 import Footer from '../../components/Footer'
 
-import RestaurantBanner from '../../components/RestaurantBanner'
-import { useEffect, useState } from 'react'
-import { Restaurant } from '../Home'
+import Cart from '../../components/Cart'
+
+import { useGetMenuQuery } from '../../services/api'
 
 const Restaurants = () => {
   const { id } = useParams()
-  const [menu, setMenu] = useState<Restaurant>({
-    id: 0,
-    titulo: '',
-    destacado: false,
-    tipo: '',
-    avaliacao: 5.0,
-    descricao: '',
-    capa: '',
-    cardapio: []
-  })
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setMenu(res))
-  }, [id])
-
-  return (
-    <>
-      <RestaurantHeader />
-      <RestaurantBanner image={menu.capa} name={menu.titulo} type={menu.tipo} />
-      <div className="container">
-        <FoodsList restaurant={menu} type="button" />
-      </div>
-      <Footer />
-    </>
-  )
+  const { data } = useGetMenuQuery(id!)
+  if (data) {
+    return (
+      <>
+        <RestaurantHeader />
+        <RestaurantBanner
+          image={data.capa}
+          name={data.titulo}
+          type={data.tipo}
+        />
+        <div className="container">
+          <FoodsList restaurant={data} type="button" />
+        </div>
+        <Cart />
+        <Footer />
+      </>
+    )
+  }
+  return <h3>Carregando...</h3>
 }
 
 export default Restaurants

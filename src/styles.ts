@@ -8,6 +8,11 @@ export const colors = {
   preto: '#000'
 }
 
+export const breackponits = {
+  desktop: '1024px',
+  tablet: '768px'
+}
+
 export const GlobalCss = createGlobalStyle`
   *{
     margin:0;
@@ -27,5 +32,9 @@ export const GlobalCss = createGlobalStyle`
     max-width: 1024px;
     width: 100%;
     margin: 0 auto;
+
+    @media(max-width:${breackponits.desktop}){
+      max-width: 90%;
+    }
   }
 `

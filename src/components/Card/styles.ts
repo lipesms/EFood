@@ -17,6 +17,7 @@ export const CardContainer = styled.div<Props>`
   background-color: ${(props) =>
     isRestaurant(props.type) ? colors.branco : colors.laranjaClaro};
   padding: ${(props) => (isRestaurant(props.type) ? '0' : '8px')};
+  margin: 0 auto;
 
   img {
     width: 100%;

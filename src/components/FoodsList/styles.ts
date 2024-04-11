@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breackponits, colors } from '../../styles'
 
 import { FoodLink } from '../../components/Button/styles'
 
@@ -13,6 +13,13 @@ export const List = styled.ul`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   row-gap: 48px;
+
+  @media (max-width: ${breackponits.desktop}) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: ${breackponits.tablet}) {
+    grid-template-columns: 1fr;
+  }
 `
 export const Modal = styled.div`
   position: fixed;
@@ -55,6 +62,21 @@ export const ModalContent = styled.div`
 
   p {
     margin: 16px 0;
+  }
+
+  @media (max-width: ${breackponits.desktop}) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h3,
+    p {
+      text-align: center;
+    }
+
+    ${FoodLink} {
+      max-width: 100%;
+    }
   }
 `
 
