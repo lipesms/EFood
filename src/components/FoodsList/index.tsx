@@ -1,25 +1,17 @@
 import { useDispatch } from 'react-redux'
 
-import {
-  Container,
-  List,
-  Modal,
-  ModalContent,
-  AddCartButton,
-  CloseButton,
-  Image
-} from './styles'
+import * as S from './styles'
 
 import { Restaurant } from '../../pages/Home'
 
 import Card from '../Card'
 
-import closeButton from '../../assets/images/fechar.png'
+import closeIcon from '../../assets/images/fechar.png'
 import { useState } from 'react'
 
 import { MenuItem } from '../../pages/Home'
 
-import { open, add } from '../../store/reducers/cart'
+import { openCart, add } from '../../store/reducers/cart'
 
 interface ModalProps extends MenuItem {
   isVisible: boolean
@@ -61,7 +53,7 @@ const HomeList = ({ restaurant, type }: Props) => {
         porcao: modal.porcao
       })
     )
-    dispatch(open())
+    dispatch(openCart())
   }
 
   const closeModal = () =>
@@ -76,8 +68,8 @@ const HomeList = ({ restaurant, type }: Props) => {
     })
 
   return (
-    <Container className="container">
-      <List>
+    <S.Container className="container">
+      <S.List>
         {restaurant.cardapio.map((item) => (
           <Card
             key={item.id}
@@ -99,16 +91,16 @@ const HomeList = ({ restaurant, type }: Props) => {
             }
           />
         ))}
-      </List>
+      </S.List>
 
-      <Modal className={`${modal.isVisible && 'visible'}`}>
-        <ModalContent className="container">
-          <Image src={modal.foto} alt="comida 1 do restaurante tal" />
+      <S.Modal className={`${modal.isVisible && 'visible'}`}>
+        <S.ModalContent className="container">
+          <S.Image src={modal.foto} alt="comida 1 do restaurante tal" />
           <div>
             <h3>{modal.nome}</h3>
             <p>{modal.descricao}</p>
             <p>Serve de {modal.porcao}</p>
-            <AddCartButton
+            <S.AddCartButton
               type="button"
               onClick={() => {
                 addToCart()
@@ -116,17 +108,17 @@ const HomeList = ({ restaurant, type }: Props) => {
               }}
             >
               Adicionar ao carrinho - {formatePrice(modal.preco)}
-            </AddCartButton>
+            </S.AddCartButton>
           </div>
-          <CloseButton
-            src={closeButton}
+          <S.CloseButton
+            src={closeIcon}
             alt="Clique para fechar"
             onClick={closeModal}
           />
-        </ModalContent>
+        </S.ModalContent>
         <div className={`overlay`} onClick={closeModal}></div>
-      </Modal>
-    </Container>
+      </S.Modal>
+    </S.Container>
   )
 }
 

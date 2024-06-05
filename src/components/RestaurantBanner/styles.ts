@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors } from '../../styles'
 
 export const BannerImage = styled.div`
   height: 280px;
@@ -16,7 +17,7 @@ export const BannerContainer = styled.div`
   padding: 24px 0;
 
   * {
-    color: white;
+    color: ${colors.white};
     font-size: 32px;
     font-weight: 900;
   }

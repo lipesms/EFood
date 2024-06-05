@@ -1,17 +1,28 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { CartContainer, Overlay, SideBar, CartItem, TotalPrice } from './styles'
+import { RootReducer } from '../../store'
+import {
+  closeCart,
+  closeDeliveries,
+  tooglePayment,
+  remove,
+  resetPayment,
+  openDeliveries
+} from '../../store/reducers/cart'
+
+import * as S from './styles'
 
 import Button from '../Button'
-import { RootReducer } from '../../store'
-import { close, remove } from '../../store/reducers/cart'
-
 import { formatePrice } from '../FoodsList'
+import PaymentForm from '../PaymentForm'
+
+import closeIcon from '../../assets/images/fechar.png'
 
 const Cart = () => {
   const dispatch = useDispatch()
-
-  const { items, isOpen } = useSelector((state: RootReducer) => state.cart)
+  const { items, cartIsOpen, deliverySection } = useSelector(
+    (state: RootReducer) => state.cart
+  )
 
   const getTotalPrice = () => {
     return items.reduce((acc, item) => {
@@ -19,8 +30,11 @@ const Cart = () => {
     }, 0)
   }
 
-  const closeCart = () => {
-    dispatch(close())
+  const close = () => {
+    dispatch(closeCart())
+    dispatch(closeDeliveries())
+    dispatch(tooglePayment(false))
+    dispatch(resetPayment())
   }
 
   const removeFromCart = (id = 0) => {
@@ -28,28 +42,41 @@ const Cart = () => {
   }
 
   return (
-    <CartContainer className={isOpen ? 'is-open' : ''}>
-      <Overlay onClick={closeCart} />
-      <SideBar>
-        <ul>
-          {items.map((item) => (
-            <CartItem key={item.id}>
-              <img src={item.foto} alt={item.nome} />
-              <div>
-                <h3>{item.nome}</h3>
-                <p>{formatePrice(item.preco)}</p>
-                <button onClick={() => removeFromCart(item.id)} />
-              </div>
-            </CartItem>
-          ))}
-        </ul>
-        <TotalPrice>
-          Valor total
-          <span>{formatePrice(getTotalPrice())}</span>
-        </TotalPrice>
-        <Button type="button">Continuar com a entrega</Button>
-      </SideBar>
-    </CartContainer>
+    <S.CartContainer className={cartIsOpen ? 'is-open' : ''}>
+      <S.Overlay onClick={close} />
+      {!deliverySection ? (
+        <S.SideBar>
+          <ul>
+            {items.map((item) => (
+              <S.CartItem key={item.id}>
+                <img src={item.foto} alt={item.nome} />
+                <div>
+                  <h3>{item.nome}</h3>
+                  <p>{formatePrice(item.preco)}</p>
+                  <button onClick={() => removeFromCart(item.id)} />
+                </div>
+              </S.CartItem>
+            ))}
+          </ul>
+          <S.TotalPrice>
+            Valor total
+            <span>{formatePrice(getTotalPrice())}</span>
+          </S.TotalPrice>
+          <Button
+            type="button"
+            onClick={() => dispatch(openDeliveries())}
+            disable={items.length > 0 ? false : true}
+          >
+            Continuar com a entrega
+          </Button>
+          <S.closeCartButton src={closeIcon} onClick={close} />
+        </S.SideBar>
+      ) : (
+        <S.SideBar>
+          <PaymentForm items={items} />
+        </S.SideBar>
+      )}
+    </S.CartContainer>
   )
 }
 

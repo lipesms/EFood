@@ -1,13 +1,14 @@
 import { RestaurantLink, FoodLink } from './styles'
 
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   to?: string
   onClick?: () => void
   children: string
+  disable?: boolean
 }
 
-const Button = ({ type, onClick, children, to }: Props) => {
+const Button = ({ type, onClick, children, to, disable }: Props) => {
   if (type === 'link') {
     return (
       <RestaurantLink to={to as string} onClick={onClick}>
@@ -15,7 +16,11 @@ const Button = ({ type, onClick, children, to }: Props) => {
       </RestaurantLink>
     )
   }
-  return <FoodLink onClick={onClick}>{children}</FoodLink>
+  return (
+    <FoodLink onClick={onClick} disabled={disable}>
+      {children}
+    </FoodLink>
+  )
 }
 
 export default Button

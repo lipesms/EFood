@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { breackponits } from '../../styles'
 
 export const Header = styled.header`
@@ -27,5 +28,20 @@ export const Header = styled.header`
   p {
     cursor: pointer;
     content: 'carrinho';
+
+    @media (max-width: ${breackponits.desktop}) {
+      span {
+        display: none;
+      }
+    }
+  }
+`
+
+export const RestaurantsLink = styled(Link)`
+  max-width: 300px;
+  width: 100%;
+
+  @media (max-width: ${breackponits.desktop}) {
+    max-width: fit-content;
   }
 `

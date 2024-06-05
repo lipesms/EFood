@@ -3,11 +3,12 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 import { useGetRestaurantsQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 export interface MenuItem {
-  id?: number
+  id: number
   foto: string
-  preco?: number
+  preco: number
   nome: string
   descricao: string
   porcao?: string
@@ -38,7 +39,7 @@ const Home = () => {
       </>
     )
   }
-  return <h3>Carregando...</h3>
+  return <Loader />
 }
 
 export default Home

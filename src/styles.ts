@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
-  laranjaClaro: '#E66767',
-  bege: '#FFEBD9',
-  begeClaro: '#FFF8F2',
-  branco: '#fff',
-  preto: '#000'
+  lightOrange: '#E66767',
+  beige: '#FFEBD9',
+  lightBeige: '#FFF8F2',
+  white: '#fff',
+  black: '#000'
 }
 
 export const breackponits = {
@@ -20,11 +20,11 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
     list-style: none;
-    color: ${colors.laranjaClaro}
+    color: ${colors.lightOrange}
   }
 
   body{
-    background-color: ${colors.begeClaro}
+    background-color: ${colors.lightBeige}
   }
 
   .container{

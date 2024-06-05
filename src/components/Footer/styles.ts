@@ -4,7 +4,7 @@ import { colors } from '../../styles'
 export const FooterContainer = styled.footer`
   height: 298px;
   padding: 40px 0;
-  background-color: ${colors.bege};
+  background-color: ${colors.beige};
 
   div {
     display: flex;

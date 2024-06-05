@@ -8,6 +8,7 @@ import Footer from '../../components/Footer'
 import Cart from '../../components/Cart'
 
 import { useGetMenuQuery } from '../../services/api'
+import Loader from '../../components/Loader'
 
 const Restaurants = () => {
   const { id } = useParams()
@@ -29,7 +30,7 @@ const Restaurants = () => {
       </>
     )
   }
-  return <h3>Carregando...</h3>
+  return <Loader />
 }
 
 export default Restaurants

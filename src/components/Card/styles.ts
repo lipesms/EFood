@@ -9,13 +9,13 @@ const isRestaurant = (p: 'button' | 'link') => p === 'link'
 
 export const CardContainer = styled.div<Props>`
   position: relative;
-  border: 1px solid ${colors.laranjaClaro};
+  border: 1px solid ${colors.lightOrange};
   max-width: ${(props) => (isRestaurant(props.type) ? '472px' : '320px')};
   max-height: ${(props) => (isRestaurant(props.type) ? 'auto' : '338px')};
   font-size: 14px;
   line-height: 22px;
   background-color: ${(props) =>
-    isRestaurant(props.type) ? colors.branco : colors.laranjaClaro};
+    isRestaurant(props.type) ? colors.white : colors.lightOrange};
   padding: ${(props) => (isRestaurant(props.type) ? '0' : '8px')};
   margin: 0 auto;
 
@@ -32,7 +32,7 @@ export const TextContainer = styled.div<Props>`
   h3,
   p {
     color: ${(props) =>
-      isRestaurant(props.type) ? colors.laranjaClaro : colors.branco};
+      isRestaurant(props.type) ? colors.lightOrange : colors.white};
   }
 
   h3 {

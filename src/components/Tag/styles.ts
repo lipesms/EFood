@@ -4,7 +4,7 @@ import { colors } from '../../styles'
 export const TagContainer = styled.div`
   display: inline-block;
   margin-left: 8px;
-  color: ${colors.branco};
+  color: ${colors.white};
   padding: 4px 6px;
-  background-color: ${colors.laranjaClaro};
+  background-color: ${colors.lightOrange};
 `
