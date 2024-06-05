@@ -57,7 +57,7 @@ export const ModalContent = styled.div`
 
   h3,
   p {
-    color: ${colors.branco};
+    color: ${colors.white};
   }
 
   p {
