@@ -16,6 +16,7 @@ import * as S from './styles'
 
 import Button from '../Button'
 import { MenuItem } from '../../pages/Home'
+import { formatePrice, getTotalPrice } from '../utils'
 
 type Props = {
   items: MenuItem[]
@@ -257,7 +258,9 @@ const PaymentForm = ({ items }: Props) => {
             </>
           ) : (
             <>
-              <p>Pagamento - Valor a pagar R$ 190,90</p>
+              <p>
+                Pagamento - Valor a pagar {formatePrice(getTotalPrice(items))}
+              </p>
               <S.InputGroup size={100}>
                 <S.LabelElement htmlFor="cardName">
                   Nome no cartão

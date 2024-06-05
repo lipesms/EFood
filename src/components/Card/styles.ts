@@ -22,7 +22,12 @@ export const CardContainer = styled.div<Props>`
   img {
     width: 100%;
     max-height: ${(props) => (isRestaurant(props.type) ? '217px' : '167px')};
+
     object-fit: cover;
+  }
+
+  > img {
+    min-height: ${(props) => (isRestaurant(props.type) ? '217px' : '167px')};
   }
 `
 

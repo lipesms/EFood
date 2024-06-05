@@ -12,6 +12,7 @@ import { useState } from 'react'
 import { MenuItem } from '../../pages/Home'
 
 import { openCart, add } from '../../store/reducers/cart'
+import { formatePrice } from '../utils'
 
 interface ModalProps extends MenuItem {
   isVisible: boolean
@@ -21,13 +22,6 @@ type Props = {
   restaurant: Restaurant
   type: 'button' | 'link'
   onClick?: () => void
-}
-
-export const formatePrice = (preco = 0) => {
-  return new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
 }
 
 const HomeList = ({ restaurant, type }: Props) => {

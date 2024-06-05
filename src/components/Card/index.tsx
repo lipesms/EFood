@@ -28,7 +28,7 @@ const Card = ({
 }: Props) => {
   const getCardDescription = (desc: string) => {
     if (desc.length > 122) {
-      return desc.slice(0, 122).concat('...')
+      return desc.slice(0, 104).concat('...')
     }
   }
   return (

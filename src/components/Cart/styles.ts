@@ -133,8 +133,8 @@ export const closeCartButton = styled.img`
     position: absolute;
     height: 16px;
     width: 16px;
-    top: 16px;
-    right: 16px;
+    top: 8px;
+    right: 8px;
     cursor: pointer;
   }
 `

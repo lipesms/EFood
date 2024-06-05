@@ -16,6 +16,7 @@ export const List = styled.ul`
 
   @media (max-width: ${breackponits.desktop}) {
     grid-template-columns: 1fr 1fr;
+    column-gap: 8px;
   }
   @media (max-width: ${breackponits.tablet}) {
     grid-template-columns: 1fr;

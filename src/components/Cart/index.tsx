@@ -13,22 +13,16 @@ import {
 import * as S from './styles'
 
 import Button from '../Button'
-import { formatePrice } from '../FoodsList'
 import PaymentForm from '../PaymentForm'
 
 import closeIcon from '../../assets/images/fechar.png'
+import { formatePrice, getTotalPrice } from '../utils'
 
 const Cart = () => {
   const dispatch = useDispatch()
   const { items, cartIsOpen, deliverySection } = useSelector(
     (state: RootReducer) => state.cart
   )
-
-  const getTotalPrice = () => {
-    return items.reduce((acc, item) => {
-      return (acc += item.preco!)
-    }, 0)
-  }
 
   const close = () => {
     dispatch(closeCart())
@@ -60,7 +54,7 @@ const Cart = () => {
           </ul>
           <S.TotalPrice>
             Valor total
-            <span>{formatePrice(getTotalPrice())}</span>
+            <span>{formatePrice(getTotalPrice(items))}</span>
           </S.TotalPrice>
           <Button
             type="button"
