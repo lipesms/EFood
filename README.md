@@ -4,12 +4,6 @@
 
 <p align="center">Um jeito fácil de experênciar bons restaurantes do confroto da sua casa.</p>
 
-
-
-<h4 align="center">
-	🚧  <b>EFood</b>  Em construção...  🚧
-</h4>
-
 ### Visão geral
 O EFood é uma plataforma onde você pode achar restaurantes selecionados pela sua qualidade e diversidade, fazer seu pedido pelo computador ou celular, e comer sem precisar sair da sua casa. Com uma usabilidade simples você pode fazer todo o pedido de forma fácil independente do lugar que está.
 
@@ -17,10 +11,11 @@ O EFood é uma plataforma onde você pode achar restaurantes selecionados pela s
 
 - [x] Seleção de restaurantes
 - [x] Seleção da comida
-- [ ] Adição ao carrinho
-- [ ] Remoção do carrinho
-- [ ] Adição do endereço de entrega
-- [ ] Adição do cartão para pagamento
+- [X] Adição ao carrinho
+- [X] Remoção do carrinho
+- [X] Adição do endereço de entrega
+- [X] Adição do cartão para pagamento
+- [X] Após confirmação de pagamento aparecer tela de confirmação do pedido
 
 ### 🛠 Tecnologias
 
